@@ -1,0 +1,10 @@
+build/
+target/
+.gradle/
+run/
+dist/
+*.pdb
+*.log
+installer/build/
+video/work*/
+video/takes/

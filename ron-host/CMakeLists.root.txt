@@ -1,0 +1,9 @@
+# UE4SS + the RoN host mod, built together (the mod links against this exact UE4SS build).
+cmake_minimum_required(VERSION 3.22)
+project(RoNMods)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_subdirectory(RE-UE4SS)
+add_subdirectory(ron-host)

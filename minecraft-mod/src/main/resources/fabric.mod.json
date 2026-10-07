@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "passthrough",
+	"version": "${version}",
+	"name": "BlockBreach Passthrough",
+	"description": "BlockBreach (Ready or Not x Minecraft): runs alongside Ready or Not; its camera drives Minecraft's, its floors and walls become invisible blocks, and Minecraft's picture (colour + depth) is composited into Ready or Not. Based on the mc-gta5-passthrough example by rehan.",
+	"authors": [
+		"rehan",
+		"BlockBreach"
+	],
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.rehan.passthrough.Passthrough"
+		],
+		"client": [
+			"dev.rehan.passthrough.client.PassthroughClient"
+		]
+	},
+	"mixins": [
+		"passthrough.mixins.json",
+		{
+			"config": "passthrough.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
