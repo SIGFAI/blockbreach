@@ -1,0 +1,218 @@
+{
+  "id": "sigf/blockbreach",
+  "version": "1.0.0",
+  "name": "BlockBreach",
+  "tagline": "Minecraft inside Ready or Not: build cover mid-raid, set zombies on the suspects, blow walls with TNT.",
+  "how_to_play": [
+    "Ready or Not as usual, with real Minecraft drawn into the mission: Minecraft's blocks, mobs and explosions appear in the level and fight its people.",
+    "Press Play: Minecraft opens its own world first, then Ready or Not starts in DirectX 11. Start any single-player mission and Minecraft shows up in it.",
+    "NumPad 0 toggles build mode: mouse, wheel and 1-9 go to Minecraft. Left click breaks or attacks, right click places or uses, middle click picks, E inventory.",
+    "Every block you place is a solid wall for you, the squad and the suspects. Zombies hunt suspects and officers; your gun kills Minecraft's mobs too.",
+    "F5 shows or hides Minecraft in the picture, F6 re-levels the ground, F7 draws Minecraft under or over the HUD."
+  ],
+  "kind": "passthrough",
+  "games": [
+    {
+      "game": "readyornot",
+      "role": "host",
+      "label": "Ready or Not",
+      "engine": "Ready or Not (Unreal Engine 5, DirectX 11) + UE4SS C++ mod RoNPassthrough + ReShade 6.8.0 add-on",
+      "apps": {
+        "steam": "1144200"
+      },
+      "runtime": "tested by the author on Ready or Not build 133804 (game build number; no Steam build id given), DirectX 11 only"
+    },
+    {
+      "game": "minecraft",
+      "role": "guest",
+      "label": "Minecraft",
+      "engine": "Minecraft Java 26.3 + Fabric mod passthrough (Java)",
+      "mc": "26.3",
+      "loader": "fabric@0.19.5",
+      "java": "25"
+    }
+  ],
+  "requires": [
+    {
+      "id": "ue4ss",
+      "version": "3.0.1-1161-g6eb3d9bc (author build)",
+      "license": "MIT, shipped unchanged",
+      "page": "https://github.com/UE4SS-RE/RE-UE4SS",
+      "note": "in the mod files, installed into Ready or Not by the app"
+    },
+    {
+      "id": "reshade",
+      "version": "6.8.0",
+      "license": "BSD-3-Clause, shipped unchanged (as dxgi.dll)",
+      "page": "https://reshade.me/",
+      "note": "in the mod files, installed into Ready or Not by the app"
+    },
+    {
+      "id": "fabric-loader",
+      "version": "0.19.5"
+    },
+    {
+      "id": "fabric-api",
+      "version": "0.161.0+26.3",
+      "note": "in the Minecraft pack (downloaded from Modrinth)"
+    }
+  ],
+  "install": [
+    {
+      "game": "readyornot",
+      "strategy": "game-dir-snapshot",
+      "loader": "ue4ss",
+      "files": [
+        {
+          "src": "blockbreach-ron.zip",
+          "dst": "{game}/ReadyOrNot/Binaries/Win64",
+          "unpack": true,
+          "contents": [
+            {
+              "path": "blockbreach-licenses/LICENSE",
+              "sha256": "f8919556cd0dc5fe570e423b44c73399ccad632d3880d592db4d316352dcbcda"
+            },
+            {
+              "path": "blockbreach-licenses/THIRD_PARTY_NOTICES.md",
+              "sha256": "9812e1ebbf2396a8e9a05e4f8fca9dc9781d41896ac196b172538693aaa2a942"
+            },
+            {
+              "path": "dwmapi.dll",
+              "sha256": "cf440b9eb8643bb7c434acfda696aee57fd981d185dca5e57fb8dbb18f8fc1cd"
+            },
+            {
+              "path": "dxgi.dll",
+              "sha256": "0cee63f9c9f13f3ac909c5b4903f4dbb4b719a7ab3b4f13b0deaf83c814b94f7"
+            },
+            {
+              "path": "reshade-shaders/Shaders/MCPassthrough.fx",
+              "sha256": "d28d6b5e75fbcd93ab4145fbd2278985693a8f202d7ee47208f5c6b0867b7017"
+            },
+            {
+              "path": "reshade-shaders/Shaders/ReShade.fxh",
+              "sha256": "6dabfbbaf968c3871905d2ea17f96572ff7b1cec01310b5d0e5252b66b30174f"
+            },
+            {
+              "path": "reshade-shaders/Shaders/ReShadeUI.fxh",
+              "sha256": "78adf672df47460297eb9fe6dd238d2aafa24510b52b84feb1a745dff70eb901"
+            },
+            {
+              "path": "ReShade.ini",
+              "sha256": "aed8a45710513af0d78074664bbc108082cba9916c273397b5841e076c12053b"
+            },
+            {
+              "path": "ReShadePreset.ini",
+              "sha256": "5eef6bfad216f3d0e92df08ac4137944d8db8fac4228ee955bf66518cb3f85c1"
+            },
+            {
+              "path": "ue4ss/LICENSE",
+              "sha256": "99e1d8f8b7cb68e8b2313380ae3b0c8115e39dfbc443fcf21fd67ab74ce1d57e"
+            },
+            {
+              "path": "ue4ss/Mods/mods.txt",
+              "sha256": "cbd14f72fc50f14c0faaa9c5a30bf4f10c1040eb8fe1b4394765ae26a3d2d610"
+            },
+            {
+              "path": "ue4ss/Mods/RoNPassthrough/dlls/main.dll",
+              "sha256": "ad658064aa150f68641172d62f970087a644dee890380925db50573f72a75e0e"
+            },
+            {
+              "path": "ue4ss/UE4SS-settings.ini",
+              "sha256": "918ca29c5dbacfdfcda43fb4178b01ade0bae266b2ce1298723e2af72c3eb85e"
+            },
+            {
+              "path": "ue4ss/UE4SS.dll",
+              "sha256": "ec7fc753303d9d76a3c090557614abb1a74551bcf5b1e1267c3623d65539f251"
+            }
+          ],
+          "url": "https://github.com/SIGFAI/blockbreach/releases/download/v1.0.0/blockbreach-ron.zip",
+          "sha256": "39649898fb83790bd8e68e8da50f6045951e94c7ccc19f1d776e4f38c2571c8e",
+          "size": 11473267
+        }
+      ]
+    },
+    {
+      "game": "minecraft",
+      "strategy": "mrpack",
+      "pack": {
+        "src": "blockbreach.mrpack",
+        "url": "https://github.com/SIGFAI/blockbreach/releases/download/v1.0.0/blockbreach.mrpack",
+        "sha256": "6f848f77827fcb754064e7f10586956c35bf080629c17648e736481603722ba2",
+        "size": 216029
+      }
+    }
+  ],
+  "launch": [
+    {
+      "game": "minecraft",
+      "wait": "port:25599"
+    },
+    {
+      "game": "readyornot",
+      "args": [
+        "-dx11"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "name": "blockbreach-ron.zip",
+      "url": "https://github.com/SIGFAI/blockbreach/releases/download/v1.0.0/blockbreach-ron.zip",
+      "sha256": "39649898fb83790bd8e68e8da50f6045951e94c7ccc19f1d776e4f38c2571c8e",
+      "size": 11473267
+    },
+    {
+      "name": "blockbreach.mrpack",
+      "url": "https://github.com/SIGFAI/blockbreach/releases/download/v1.0.0/blockbreach.mrpack",
+      "sha256": "6f848f77827fcb754064e7f10586956c35bf080629c17648e736481603722ba2",
+      "size": 216029
+    }
+  ],
+  "source": {
+    "repo": "https://github.com/ImmortalSouull/BlockBreach",
+    "license": "MIT AND BSD-3-Clause",
+    "upstream_license": "MIT",
+    "tag": "v1.0.0",
+    "commit": "ffe5ec8384ce51b9030fa2edeca0281f60f45bac",
+    "hosted": "https://github.com/SIGFAI/blockbreach",
+    "based_on": "https://github.com/rehan-remade/universal-modder",
+    "bundled": [
+      {
+        "name": "UE4SS (author build of RE-UE4SS)",
+        "version": "3.0.1-1161-g6eb3d9bc",
+        "repo": "https://github.com/UE4SS-RE/RE-UE4SS",
+        "license": "MIT"
+      },
+      {
+        "name": "ReShade",
+        "version": "6.8.0",
+        "repo": "https://github.com/crosire/reshade",
+        "commit": "18deaa52de0c425a78b329e9cb3c497281cd00ec",
+        "license": "BSD-3-Clause"
+      }
+    ]
+  },
+  "media": {},
+  "built_by": {
+    "author": "ImmortalSouull",
+    "authors": [
+      "ImmortalSouull",
+      "Rehan and universal-modder contributors"
+    ],
+    "packaged_by": "SIGF"
+  },
+  "idea_by": "ImmortalSouull",
+  "built_at": "2026-10-07T00:00:00.000Z",
+  "conflicts": [
+    "sigf/readycraft"
+  ],
+  "status": "beta",
+  "issues": "https://github.com/ImmortalSouull/BlockBreach/issues",
+  "notes": [
+    "You need Ready or Not on Steam and Minecraft: Java Edition. Ready or Not must run in DirectX 11 (the app starts it with -dx11; from Steam, pick Play Ready or Not (DirectX 11)). Tested by the author on game build 133804; an update can break it.",
+    "Single player only: with other players in the session the mod switches itself off. Never take it into public multiplayer.",
+    "Installs UE4SS (as dwmapi.dll) and ReShade 6.8.0 (as dxgi.dll) into ReadyOrNot\\Binaries\\Win64; Restore puts that folder back as it was. Never together with ReadyCraft, and run one \"Minecraft X\" mod at a time.",
+    "Beta, first release. Report bugs to the author on the upstream issue tracker with ue4ss\\UE4SS.log, ue4ss\\Mods\\RoNPassthrough\\history.log and ReShade.log from ReadyOrNot\\Binaries\\Win64.",
+    "No free SIGF server for this mashup: the Minecraft side drives the world from the same PC as Ready or Not. Play it in its own Minecraft world."
+  ]
+}
